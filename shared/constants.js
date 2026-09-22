@@ -17,6 +17,7 @@ const LESSTYPE = Object.freeze({
         profileNameCaseSensitive: false,
         incognitoEnabled: false,
         globalEnabled: true,
+        activeProfileId: null,
         siteRules: []
     })
 });

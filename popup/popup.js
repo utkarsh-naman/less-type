@@ -80,7 +80,16 @@ async function renderPopup() {
         !selectedProfileId ||
         !state.profiles.some(profile => profile.id === selectedProfileId)
     ) {
-        selectedProfileId = state.profiles[0]?.id ?? null;
+        selectedProfileId =
+            state.settings.activeProfileId &&
+            state.profiles.some(profile => profile.id === state.settings.activeProfileId)
+                ? state.settings.activeProfileId
+                : state.profiles[0]?.id ?? null;
+    }
+
+    if (state.settings.activeProfileId !== selectedProfileId) {
+        state.settings.activeProfileId = selectedProfileId;
+        await saveExtensionState(state);
     }
 
     const selectedProfile = state.profiles.find(
@@ -190,6 +199,11 @@ function renderProfileDropdown(profiles) {
 
         button.addEventListener("click", async () => {
             selectedProfileId = profile.id;
+
+            const state = await getExtensionState();
+            state.settings.activeProfileId = profile.id;
+            await saveExtensionState(state);
+
             closeProfileDropdown();
 
             const search = document.getElementById("shortcutSearch");

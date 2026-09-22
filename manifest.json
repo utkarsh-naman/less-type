@@ -4,7 +4,8 @@
   "version": "0.1.0",
   "description": "A local-first text expansion extension for Chromium browsers.",
   "permissions": [
-    "storage"
+    "storage",
+    "contextMenus"
   ],
   "host_permissions": [
     "<all_urls>"
