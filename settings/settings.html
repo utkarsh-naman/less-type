@@ -190,20 +190,20 @@
 
                 <div class="data-actions">
 
-                    <button class="secondary-button">
-                        Export JSON backup
+                    <button
+                        class="secondary-button"
+                        id="exportShortcutsButton"
+                        type="button"
+                    >
+                        Export Shortcuts
                     </button>
 
-                    <button class="secondary-button">
-                        Import JSON backup
-                    </button>
-
-                    <button class="secondary-button">
-                        Export all CSV
-                    </button>
-
-                    <button class="secondary-button">
-                        Import CSV
+                    <button
+                        class="secondary-button"
+                        id="importShortcutsButton"
+                        type="button"
+                    >
+                        Import Shortcuts
                     </button>
 
                 </div>
@@ -217,6 +217,180 @@
             LessType stores your data locally in your browser.
         </footer>
 
+    </div>
+
+
+    <!-- Export shortcuts modal -->
+    <div
+        class="modal-backdrop hidden"
+        id="exportModal"
+    >
+        <div
+            class="modal data-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="exportModalTitle"
+        >
+            <div class="modal-header">
+                <div>
+                    <h2 id="exportModalTitle">Export Shortcuts</h2>
+                    <p class="modal-subtitle">Choose a format and the profiles to export.</p>
+                </div>
+
+                <button
+                    class="modal-close"
+                    id="exportModalClose"
+                    type="button"
+                    aria-label="Close"
+                >
+                    ×
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="field-group">
+                    <label class="field-label" for="exportFormat">Export format</label>
+                    <select id="exportFormat" class="modal-input modal-select">
+                        <option value="csv">CSV</option>
+                        <option value="json">JSON</option>
+                    </select>
+                </div>
+
+                <div class="profile-select-header">
+                    <span class="field-label">Profiles</span>
+                    <label class="select-all-row">
+                        <input type="checkbox" id="exportSelectAll">
+                        <span id="exportSelectAllLabel">Select all</span>
+                    </label>
+                </div>
+
+                <div class="profile-checklist" id="exportProfileList"></div>
+
+                <div class="modal-error" id="exportModalError" role="alert"></div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="secondary-button" id="exportModalCancel" type="button">
+                    Cancel
+                </button>
+                <button class="primary-button" id="exportModalConfirm" type="button">
+                    Export
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Import shortcuts modal -->
+    <div
+        class="modal-backdrop hidden"
+        id="importModal"
+    >
+        <div
+            class="modal data-modal import-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="importModalTitle"
+        >
+            <div class="modal-header">
+                <div>
+                    <h2 id="importModalTitle">Import Shortcuts</h2>
+                    <p class="modal-subtitle">Add JSON or CSV files. Multiple files and mixed formats are supported.</p>
+                </div>
+
+                <button
+                    class="modal-close"
+                    id="importModalClose"
+                    type="button"
+                    aria-label="Close"
+                >
+                    ×
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <input
+                    id="importFileInput"
+                    type="file"
+                    accept=".json,.csv,application/json,text/csv"
+                    multiple
+                    hidden
+                >
+
+                <div
+                    class="drop-zone"
+                    id="importDropZone"
+                    tabindex="0"
+                    role="button"
+                    aria-label="Choose JSON or CSV files"
+                >
+                    <strong>Drop your JSON or CSV files anywhere on the screen</strong>
+                    <span>or click here to browse. You can add multiple files of either type.</span>
+                    <button class="secondary-button drop-zone-button" id="browseImportFiles" type="button">
+                        Add files
+                    </button>
+                </div>
+
+                <div class="import-file-list" id="importFileList"></div>
+
+                <div class="modal-error" id="importModalError" role="alert"></div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="secondary-button" id="importModalCancel" type="button">
+                    Cancel
+                </button>
+                <button class="primary-button" id="importModalConfirm" type="button" disabled>
+                    Import
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Import conflict modal -->
+    <div
+        class="modal-backdrop hidden"
+        id="importConflictModal"
+    >
+        <div
+            class="modal data-modal conflict-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="importConflictTitle"
+        >
+            <div class="modal-header">
+                <div>
+                    <h2 id="importConflictTitle">Shortcut conflict</h2>
+                    <p class="modal-subtitle">This shortcut already exists in the selected profile.</p>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <div class="conflict-grid">
+                    <section class="conflict-card">
+                        <div class="conflict-card-title">Stored</div>
+                        <div class="conflict-meta" id="conflictStoredProfile"></div>
+                        <code id="conflictStoredKey"></code>
+                        <pre id="conflictStoredReplacement"></pre>
+                    </section>
+
+                    <section class="conflict-card conflict-card-upload">
+                        <div class="conflict-card-title">Uploaded</div>
+                        <div class="conflict-meta" id="conflictUploadedProfile"></div>
+                        <code id="conflictUploadedKey"></code>
+                        <pre id="conflictUploadedReplacement"></pre>
+                    </section>
+                </div>
+            </div>
+
+            <div class="modal-footer conflict-actions">
+                <button class="secondary-button" id="conflictSkip" type="button">Skip</button>
+                <button class="secondary-button" id="conflictSkipAll" type="button">Skip for all</button>
+                <button class="secondary-button" id="conflictOverwrite" type="button">Overwrite</button>
+                <button class="primary-button" id="conflictOverwriteAll" type="button">Overwrite for all</button>
+            </div>
+        </div>
     </div>
 
 
