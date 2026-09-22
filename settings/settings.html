@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>LessType — Settings</title>
+
+    <link rel="stylesheet" href="../styles/theme.css">
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="settings.css">
+</head>
+
+<body>
+
+    <div class="settings-page">
+
+        <header class="settings-header">
+
+            <img
+                src="../assets/LESSTYPE.svg"
+                alt="LessType"
+            >
+
+            <div>
+                <div class="page-eyebrow">
+                    LESSTYPE
+                </div>
+
+                <h1>Settings</h1>
+            </div>
+
+        </header>
+
+
+        <main class="settings-content">
+
+            <section class="settings-section">
+
+                <h2>General</h2>
+
+                <div class="setting-row">
+
+                    <div>
+                        <strong>Extension</strong>
+                        <p>
+                            Enable or disable LessType.
+                        </p>
+                    </div>
+
+                    <label class="switch">
+                        <input
+                            type="checkbox"
+                            id="globalEnabled"
+                            checked
+                        >
+
+                        <span></span>
+                    </label>
+
+                </div>
+
+            </section>
+
+
+            <section class="settings-section">
+
+                <h2>Trigger</h2>
+
+                <div class="setting-row">
+
+                    <div>
+                        <strong>Trigger</strong>
+                        <p>
+                            Text used before a shortcut.
+                        </p>
+                    </div>
+
+                    <input
+                        class="setting-input"
+                        id="trigger"
+                        type="text"
+                        value="/:"
+                    >
+
+                </div>
+
+            </section>
+
+
+            <section class="settings-section">
+
+                <h2>Expansion</h2>
+
+                <label class="checkbox-row">
+
+                    <input
+                        type="checkbox"
+                        id="requireDelimiter"
+                        checked
+                    >
+
+                    <span>
+                        Require delimiter
+                    </span>
+
+                </label>
+
+
+                <label class="checkbox-row">
+
+                    <input
+                        type="checkbox"
+                        id="immediateExpansion"
+                    >
+
+                    <span>
+                        Immediate expansion
+                    </span>
+
+                </label>
+
+            </section>
+
+
+            <section class="settings-section">
+
+                <h2>Profiles</h2>
+
+                <label class="radio-row">
+
+                    <input
+                        type="radio"
+                        name="profileCase"
+                        value="false"
+                        checked
+                    >
+
+                    <span>
+                        Case-insensitive
+                    </span>
+
+                </label>
+
+
+                <label class="radio-row">
+
+                    <input
+                        type="radio"
+                        name="profileCase"
+                        value="true"
+                    >
+
+                    <span>
+                        Case-sensitive
+                    </span>
+
+                </label>
+
+            </section>
+
+
+            <section class="settings-section">
+
+                <h2>Privacy</h2>
+
+                <label class="checkbox-row">
+
+                    <input
+                        type="checkbox"
+                        id="incognitoEnabled"
+                    >
+
+                    <span>
+                        Allow in Incognito
+                    </span>
+
+                </label>
+
+            </section>
+
+
+            <section class="settings-section">
+
+                <h2>Data</h2>
+
+                <div class="data-actions">
+
+                    <button class="secondary-button">
+                        Export JSON backup
+                    </button>
+
+                    <button class="secondary-button">
+                        Import JSON backup
+                    </button>
+
+                    <button class="secondary-button">
+                        Export all CSV
+                    </button>
+
+                    <button class="secondary-button">
+                        Import CSV
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <footer class="settings-footer">
+            LessType stores your data locally in your browser.
+        </footer>
+
+    </div>
+
+
+    <script src="../shared/constants.js"></script>
+    <script src="../storage/defaults.js"></script>
+    <script src="../storage/storage.js"></script>
+    <script src="settings.js"></script>
+
+</body>
+</html>

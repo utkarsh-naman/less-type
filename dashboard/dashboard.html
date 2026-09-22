@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>LessType — Dashboard</title>
+
+    <link rel="stylesheet" href="../styles/theme.css">
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!--<aside class="sidebar">
+
+            <div class="sidebar-brand">
+                <img
+                    src="../assets/LESSTYPE.svg"
+                    alt="LessType"
+                >
+            </div>
+
+            <div class="sidebar-section">
+
+                <div class="sidebar-heading">
+                    PROFILES
+                </div>
+
+                <button class="sidebar-item active">
+                    <span>All Shortcuts</span>
+                </button>
+
+            </div>
+
+            <div class="sidebar-footer">
+                <button
+                    class="sidebar-item"
+                    id="settingsButton"
+                >
+                    Settings
+                </button>
+            </div>
+
+        </aside>-->
+
+        <aside class="sidebar">
+        
+            <div class="sidebar-brand">
+        
+                <img
+                    src="../assets/LESSTYPE.svg"
+                    alt="LessType"
+                >
+        
+            </div>
+        
+        
+            <div class="sidebar-section">
+        
+                <div class="sidebar-heading">
+                    PROFILES
+                </div>
+        
+        
+                <button
+                    class="sidebar-item active"
+                    id="allShortcutsButton"
+                    type="button"
+                >
+                    <span>All Shortcuts</span>
+                </button>
+        
+        
+                <div
+                    class="profile-list"
+                    id="profileList"
+                ></div>
+        
+        
+                <button
+                    class="new-profile-button"
+                    id="newProfileButton"
+                    type="button"
+                >
+                    <span class="lt-icon" id="newProfileIcon"></span>
+                    <span>New Profile</span>
+                </button>
+        
+            </div>
+        
+        
+            <div class="sidebar-footer">
+        
+                <button
+                    class="sidebar-item"
+                    id="settingsButton"
+                    type="button"
+                >
+                    <span class="lt-icon" id="settingsIcon"></span>
+                    <span>Settings</span>
+                </button>
+        
+            </div>
+        
+        </aside>
+
+        <main class="dashboard-main">
+
+            <header class="dashboard-header">
+
+                <div>
+                    <div class="page-eyebrow">
+                        SHORTCUTS
+                    </div>
+
+                    <h1>
+                        All Shortcuts
+                    </h1>
+                </div>
+
+                <button
+                    class="primary-button"
+                    id="addShortcutButton"
+                >
+                    + Add Shortcut
+                </button>
+
+            </header>
+
+
+            <section class="dashboard-content">
+
+                <div class="toolbar">
+
+                    <div class="search-container">
+                        <input
+                            type="search"
+                            placeholder="Search shortcuts..."
+                            id="searchInput"
+                        >
+
+                        <span
+                            class="search-icon"
+                            aria-hidden="true"
+                        >
+                            ⌕
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Profile</th>
+                                <th>Shortcut</th>
+                                <th>Replacement</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="shortcutTableBody">
+                            <tr>
+                                <td
+                                    colspan="4"
+                                    class="table-empty"
+                                >
+                                    No shortcuts yet.
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+
+    
+    <div
+        class="modal-backdrop hidden"
+        id="profileModal"
+    >
+        <div
+            class="modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="profileModalTitle"
+        >
+    
+            <div class="modal-header">
+    
+                <h2 id="profileModalTitle">
+                    New Profile
+                </h2>
+    
+                <button
+                    class="modal-close"
+                    id="profileModalClose"
+                    type="button"
+                    aria-label="Close"
+                >
+                    <span
+                        class="lt-icon"
+                        id="profileModalCloseIcon"
+                    ></span>
+                </button>
+    
+            </div>
+    
+    
+            <div class="modal-body">
+    
+                <label
+                    for="profileNameInput"
+                    class="field-label"
+                >
+                    Profile name
+                </label>
+    
+                <input
+                    id="profileNameInput"
+                    class="modal-input"
+                    type="text"
+                    maxlength="100"
+                    autocomplete="off"
+                    placeholder="e.g. Personal"
+                >
+    
+                <div
+                    class="modal-error"
+                    id="profileModalError"
+                ></div>
+    
+            </div>
+    
+    
+            <div class="modal-footer">
+    
+                <button
+                    class="secondary-button"
+                    id="profileModalCancel"
+                    type="button"
+                >
+                    Cancel
+                </button>
+    
+                <button
+                    class="primary-button"
+                    id="profileModalSave"
+                    type="button"
+                >
+                    Create Profile
+                </button>
+    
+            </div>
+    
+        </div>
+    </div>
+    
+    <script src="../shared/constants.js"></script>
+    <script src="../shared/icons.js"></script>
+    <script src="../storage/defaults.js"></script>
+    <script src="../storage/storage.js"></script>
+    <script src="dashboard.js"></script>
+
+</body>
+</html>

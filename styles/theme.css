@@ -1,0 +1,92 @@
+:root {
+    /* ========================================
+       LessType Theme
+       ======================================== */
+
+    --lt-primary: #010736;
+    --lt-secondary: #0D1C42;
+    --lt-tertiary: #22396F;
+    --lt-cream: #FCF1D0;
+
+    --lt-black: #000000;
+    --lt-white: #FFFFFF;
+
+    /* ========================================
+       Semantic Colors
+       ======================================== */
+
+    --lt-background: var(--lt-primary);
+    --lt-surface: var(--lt-secondary);
+    --lt-surface-hover: var(--lt-tertiary);
+
+    --lt-text: var(--lt-white);
+    --lt-text-muted: #AEB7CC;
+    --lt-text-dark: var(--lt-black);
+
+    --lt-accent: var(--lt-cream);
+
+    --lt-border: rgba(255, 255, 255, 0.10);
+    --lt-border-strong: rgba(255, 255, 255, 0.18);
+
+    --lt-success: #78C091;
+    --lt-warning: #E5B85C;
+    --lt-danger: #D87575;
+
+    /* ========================================
+       Typography
+       ======================================== */
+
+    --lt-font-family:
+        Inter,
+        ui-sans-serif,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    --lt-font-size-xs: 11px;
+    --lt-font-size-sm: 12px;
+    --lt-font-size-md: 14px;
+    --lt-font-size-lg: 16px;
+    --lt-font-size-xl: 20px;
+    --lt-font-size-2xl: 24px;
+
+    /* ========================================
+       Spacing
+       ======================================== */
+
+    --lt-space-1: 4px;
+    --lt-space-2: 8px;
+    --lt-space-3: 12px;
+    --lt-space-4: 16px;
+    --lt-space-5: 20px;
+    --lt-space-6: 24px;
+    --lt-space-8: 32px;
+    --lt-space-10: 40px;
+
+    /* ========================================
+       Radius
+       ======================================== */
+
+    --lt-radius-sm: 5px;
+    --lt-radius-md: 8px;
+    --lt-radius-lg: 12px;
+    --lt-radius-xl: 16px;
+
+    /* ========================================
+       Borders / Shadows
+       ======================================== */
+
+    --lt-shadow-sm:
+        0 2px 8px rgba(0, 0, 0, 0.18);
+
+    --lt-shadow-md:
+        0 8px 24px rgba(0, 0, 0, 0.24);
+
+    /* ========================================
+       Motion
+       ======================================== */
+
+    --lt-transition-fast: 120ms ease;
+    --lt-transition: 180ms ease;
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>LessType</title>
+
+    <link rel="stylesheet" href="../styles/theme.css">
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+
+    <main class="popup">
+        <header class="popup-header">
+
+            <div class="brand">
+                <img
+                    src="../assets/LESSTYPE.svg"
+                    alt="LessType"
+                    class="brand-logo"
+                >
+            </div>
+
+            <!--<button
+                class="icon-button"
+                id="settingsButton"
+                type="button"
+                aria-label="Settings"
+                title="Settings"
+            >
+                <span aria-hidden="true">⚙</span>
+            </button>-->
+            <button
+                class="icon-button"
+                id="settingsButton"
+                type="button"
+                aria-label="Settings"
+                title="Settings"
+            >
+                <span
+                    class="lt-icon"
+                    id="settingsIcon"
+                ></span>
+            </button>
+
+        </header>
+
+
+        <section class="popup-content">
+
+            <div class="section-label">
+                PROFILE
+            </div>
+
+            <button
+                class="profile-selector"
+                id="profileSelector"
+                type="button"
+            >
+                <span>Personal</span>
+                <span
+                    class="lt-icon selector-arrow"
+                    id="profileSelectorIcon"
+                ></span>
+            </button>
+
+
+            <div class="search-container">
+
+                <input
+                    id="shortcutSearch"
+                    type="search"
+                    placeholder="Search shortcuts..."
+                    autocomplete="off"
+                >
+
+                <span
+                    class="lt-icon search-icon"
+                    id="searchIcon"
+                ></span>
+
+            </div>
+
+
+            <div
+                class="shortcut-list"
+                id="shortcutList"
+            >
+                <div class="empty-state">
+                    <span>No shortcuts yet.</span>
+                </div>
+            </div>
+
+
+            <button
+                class="primary-button"
+                id="addShortcutButton"
+                type="button"
+            >
+                + Add Shortcut
+            </button>
+
+        </section>
+
+
+        <footer class="popup-footer">
+            <span id="shortcutCount">
+                0 shortcuts
+            </span>
+
+            <button
+                class="text-button"
+                id="openDashboardButton"
+                type="button"
+            >
+                Manage
+            </button>
+        </footer>
+
+    </main>
+
+    <script src="../shared/constants.js"></script>
+    <script src="../storage/defaults.js"></script>
+    <script src="../storage/storage.js"></script>
+    <script src="../shared/icons.js"></script>
+    <script src="popup.js"></script>
+
+</body>
+</html>
