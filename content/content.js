@@ -66,6 +66,45 @@
     }
 
     // ------------------------------------------------------------
+    // Extension context safety
+    // ------------------------------------------------------------
+
+    // A content-script instance can outlive an extension reload/update.
+    // Once that happens, its chrome.* extension APIs are no longer usable.
+    function isExtensionContextValid() {
+        try {
+            return Boolean(chrome?.runtime?.id);
+        } catch {
+            return false;
+        }
+    }
+
+    function isExtensionContextInvalidated(err) {
+        return String(err?.message || err || "")
+            .toLowerCase()
+            .includes("extension context invalidated");
+    }
+
+    async function sendRuntimeMessage(message) {
+        if (!isExtensionContextValid()) {
+            return null;
+        }
+
+        try {
+            return await chrome.runtime.sendMessage(message);
+        } catch (err) {
+            // This is expected when an old content-script instance is still
+            // running after the extension has been reloaded/updated. There
+            // is nothing useful for this stale instance to do, so fail quiet.
+            if (isExtensionContextInvalidated(err)) {
+                return null;
+            }
+
+            throw err;
+        }
+    }
+
+    // ------------------------------------------------------------
     // Initialization
     // ------------------------------------------------------------
 
@@ -799,6 +838,11 @@
         targetOverride = null,
         delimiterKey = ""
     ) {
+        // A stale content script must stop before touching chrome.* APIs.
+        if (!isExtensionContextValid()) {
+            return;
+        }
+
         const target =
             targetOverride ||
             getEditableTarget(
@@ -892,12 +936,10 @@
 
             // Remove any stale context menu.
             try {
-                await chrome.runtime.sendMessage(
-                    {
-                        type:
-                            "LESSTYPE_CLEAR_CONTEXT_MENU",
-                    }
-                );
+                await sendRuntimeMessage({
+                    type:
+                        "LESSTYPE_CLEAR_CONTEXT_MENU",
+                });
             } catch (err) {
                 warn(
                     "Could not clear context menu",
@@ -957,16 +999,15 @@
             );
 
             try {
-                await chrome.runtime.sendMessage(
-                    {
-                        type:
-                            "LESSTYPE_SHOW_CONTEXT_MENU",
+                await sendRuntimeMessage({
+                    type:
+                        "LESSTYPE_SHOW_CONTEXT_MENU",
 
-                        shortcutKey:
-                            candidate.shortcut,
+                    shortcutKey:
+                        candidate.shortcut,
 
-                        profiles:
-                            decision.matches.map(
+                    profiles:
+                        decision.matches.map(
                                 (match) => ({
                                     id:
                                         match
@@ -977,6 +1018,11 @@
                                         match
                                             .profile
                                             .name,
+
+                                    replacement:
+                                        match
+                                            .shortcut
+                                            .replacement,
                                 })
                             ),
                     }
@@ -1362,29 +1408,32 @@
         matches
     ) {
         try {
-            await chrome.runtime.sendMessage(
-                {
-                    type:
-                        "LESSTYPE_SHOW_CONTEXT_MENU",
+            await sendRuntimeMessage({
+                type:
+                    "LESSTYPE_SHOW_CONTEXT_MENU",
 
-                    shortcutKey,
+                shortcutKey,
 
-                    profiles:
-                        matches.map(
-                            (match) => ({
-                                id:
-                                    match
-                                        .profile
-                                        .id,
+                profiles:
+                    matches.map(
+                        (match) => ({
+                            id:
+                                match
+                                    .profile
+                                    .id,
 
-                                name:
-                                    match
-                                        .profile
-                                        .name,
-                            })
-                        ),
-                }
-            );
+                            name:
+                                match
+                                    .profile
+                                    .name,
+
+                            replacement:
+                                match
+                                    .shortcut
+                                    .replacement,
+                        })
+                    ),
+            });
         } catch (err) {
             error(
                 "SHOW CONTEXT MENU FAILED",
@@ -1395,14 +1444,12 @@
 
     async function clearContextMenu() {
         try {
-            await chrome.runtime.sendMessage(
-                {
-                    type:
-                        "LESSTYPE_CLEAR_CONTEXT_MENU",
-                }
-            );
+            await sendRuntimeMessage({
+                type:
+                    "LESSTYPE_CLEAR_CONTEXT_MENU",
+            });
         } catch {
-            // Ignore.
+            // Ignore non-critical cleanup failures.
         }
     }
 
