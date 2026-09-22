@@ -27,15 +27,6 @@
                 >
             </div>
 
-            <!--<button
-                class="icon-button"
-                id="settingsButton"
-                type="button"
-                aria-label="Settings"
-                title="Settings"
-            >
-                <span aria-hidden="true">⚙</span>
-            </button>-->
             <button
                 class="icon-button"
                 id="settingsButton"
@@ -58,17 +49,28 @@
                 PROFILE
             </div>
 
-            <button
-                class="profile-selector"
-                id="profileSelector"
-                type="button"
-            >
-                <span>Personal</span>
-                <span
-                    class="lt-icon selector-arrow"
-                    id="profileSelectorIcon"
-                ></span>
-            </button>
+            <div class="profile-picker">
+                <button
+                    class="profile-selector"
+                    id="profileSelector"
+                    type="button"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                >
+                    <span>No profiles</span>
+                    <span
+                        class="lt-icon selector-arrow"
+                        id="profileSelectorIcon"
+                    ></span>
+                </button>
+
+                <div
+                    class="profile-dropdown hidden"
+                    id="profileDropdown"
+                    role="listbox"
+                    aria-label="Profiles"
+                ></div>
+            </div>
 
 
             <div class="search-container">

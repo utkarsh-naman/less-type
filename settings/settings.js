@@ -1,35 +1,3 @@
-// document.addEventListener("DOMContentLoaded", async () => {
-//     await initializeExtensionState();
-
-//     const state = await getExtensionState();
-
-//     document.getElementById("globalEnabled").checked =
-//         state.settings.globalEnabled;
-
-//     document.getElementById("trigger").value =
-//         state.settings.trigger;
-
-//     document.getElementById("requireDelimiter").checked =
-//         state.settings.requireDelimiter;
-
-//     document.getElementById("immediateExpansion").checked =
-//         state.settings.immediateExpansion;
-
-//     document.getElementById("incognitoEnabled").checked =
-//         state.settings.incognitoEnabled;
-
-//     const caseRadio =
-//         document.querySelector(
-//             `input[name="profileCase"][value="${state.settings.profileNameCaseSensitive}"]`
-//         );
-
-//     if (caseRadio) {
-//         caseRadio.checked = true;
-//     }
-// });
-//
-//
-
 document.addEventListener("DOMContentLoaded", async () => {
 
     await initializeExtensionState();

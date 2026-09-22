@@ -189,3 +189,106 @@ body {
 .text-button:hover {
     text-decoration: underline;
 }
+
+.shortcut-item {
+    min-height: 44px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--lt-border);
+    border-radius: var(--lt-radius-md);
+    background: var(--lt-secondary);
+}
+
+.shortcut-item + .shortcut-item {
+    margin-top: 6px;
+}
+
+.shortcut-item code {
+    flex-shrink: 0;
+    padding: 3px 6px;
+    color: var(--lt-cream);
+    background: rgba(252, 241, 208, 0.08);
+    border-radius: var(--lt-radius-sm);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: var(--lt-font-size-xs);
+}
+
+.shortcut-item > span {
+    overflow: hidden;
+    color: var(--lt-text-muted);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: var(--lt-font-size-xs);
+}
+
+.shortcut-item.disabled {
+    opacity: 0.55;
+}
+
+/* ========================================
+   Profile picker
+   ======================================== */
+
+.profile-picker {
+    position: relative;
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    max-height: 220px;
+    padding: 4px;
+    overflow-y: auto;
+    z-index: 20;
+
+    background: var(--lt-secondary);
+    border: 1px solid var(--lt-border-strong);
+    border-radius: var(--lt-radius-md);
+    box-shadow: var(--lt-shadow-md);
+}
+
+.profile-dropdown.hidden {
+    display: none;
+}
+
+.profile-option {
+    width: 100%;
+    min-height: 38px;
+    padding: 0 10px;
+
+    display: flex;
+    align-items: center;
+
+    color: var(--lt-text);
+    background: transparent;
+    border-radius: var(--lt-radius-sm);
+
+    text-align: left;
+    cursor: pointer;
+}
+
+.profile-option:hover,
+.profile-option.selected {
+    background: var(--lt-tertiary);
+}
+
+.profile-option.selected {
+    color: var(--lt-white);
+}
+
+.profile-dropdown-empty {
+    padding: 12px 10px;
+    color: var(--lt-text-muted);
+    font-size: var(--lt-font-size-sm);
+}
+
+.shortcut-more {
+    padding: 8px 4px 0;
+    color: var(--lt-text-muted);
+    font-size: var(--lt-font-size-xs);
+    text-align: center;
+}
