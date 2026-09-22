@@ -164,12 +164,46 @@ h1 {
 
 .settings-footer {
     margin-top: auto;
-    padding: var(--lt-space-4) var(--lt-space-8);
-
+    padding: 14px var(--lt-space-8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
     color: var(--lt-text-muted);
     background: var(--lt-black);
-
     font-size: var(--lt-font-size-xs);
+}
+
+.settings-footer-copy {
+    min-width: 0;
+}
+
+.settings-social-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.settings-social-links a {
+    height: 32px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    border-radius: var(--lt-radius-sm);
+    transition: background var(--lt-transition-fast);
+}
+
+.settings-social-links a:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.settings-social-links img {
+    display: block;
+    width: auto;
+    height: 100%;
+    max-width: none;
+    object-fit: contain;
 }
 
 

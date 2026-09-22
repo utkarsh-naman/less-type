@@ -28,39 +28,49 @@
                 >
             </div>
 
-            <div class="sidebar-section">
+            <div class="sidebar-content">
+                <div class="sidebar-section sidebar-profiles">
+                    <div class="sidebar-heading">PROFILES</div>
 
-                <div class="sidebar-heading">
-                    PROFILES
+                    <button
+                        class="sidebar-item active"
+                        id="allShortcutsButton"
+                        type="button"
+                    >
+                        <span>All Shortcuts</span>
+                    </button>
+
+                    <div class="profile-list" id="profileList"></div>
+
+                    <button
+                        class="new-profile-button"
+                        id="newProfileButton"
+                        type="button"
+                    >
+                        <span class="lt-icon" id="newProfileIcon"></span>
+                        <span>New Profile</span>
+                    </button>
                 </div>
-
-                <button
-                    class="sidebar-item active"
-                    id="allShortcutsButton"
-                    type="button"
-                >
-                    <span>All Shortcuts</span>
-                </button>
-
-                <div
-                    class="profile-list"
-                    id="profileList"
-                ></div>
-
-                <button
-                    class="new-profile-button"
-                    id="newProfileButton"
-                    type="button"
-                >
-                    <span class="lt-icon" id="newProfileIcon"></span>
-                    <span>New Profile</span>
-                </button>
-
             </div>
 
             <div class="sidebar-footer">
+                <div class="donation-links" aria-label="Support LessType">
+                    <button class="donation-link donation-link-upi" id="upiDonationButton" type="button" aria-label="Support via UPI">
+                        <img src="../assets/upi.svg" alt="UPI">
+                    </button>
+                    <a class="donation-link donation-link-bmc" href="https://buymeacoffee.com/utkarshnaman" target="_blank" rel="noopener noreferrer" aria-label="Buy me a coffee">
+                        <img src="../assets/bmc.svg" alt="Buy Me a Coffee">
+                    </a>
+                    <a class="donation-link" href="https://paypal.me/utkarshnaman2301" target="_blank" rel="noopener noreferrer" aria-label="Support via PayPal">
+                        <img src="../assets/paypal.svg" alt="PayPal">
+                    </a>
+                    <a class="donation-link" href="https://www.patreon.com/c/utnam" target="_blank" rel="noopener noreferrer" aria-label="Support on Patreon">
+                        <img src="../assets/patreon.svg" alt="Patreon">
+                    </a>
+                </div>
+
                 <button
-                    class="sidebar-item"
+                    class="sidebar-item settings-sidebar-item"
                     id="settingsButton"
                     type="button"
                 >
@@ -363,6 +373,21 @@
         </div>
     </div>
 
+    <!-- UPI QR modal -->
+    <div class="modal-backdrop hidden" id="upiModal">
+        <div class="modal upi-modal" role="dialog" aria-modal="true" aria-labelledby="upiModalTitle">
+            <div class="modal-header">
+                <div>
+                    <h2 id="upiModalTitle">Support via UPI</h2>
+                    <p class="modal-subtitle">Scan the QR code with your UPI app.</p>
+                </div>
+                <button class="modal-close" id="upiModalClose" type="button" aria-label="Close">×</button>
+            </div>
+            <div class="upi-modal-body">
+                <img src="../assets/payments.png" alt="UPI payment QR code">
+            </div>
+        </div>
+    </div>
 
     <script src="../shared/constants.js"></script>
     <script src="../shared/icons.js"></script>

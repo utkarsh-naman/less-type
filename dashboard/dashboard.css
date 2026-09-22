@@ -10,6 +10,8 @@ body {
 
 .sidebar {
     width: 240px;
+    height: 100vh;
+    flex-shrink: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -27,6 +29,13 @@ body {
 
 .sidebar-brand img {
     width: 125px;
+}
+
+.sidebar-content {
+    min-height: 0;
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: thin;
 }
 
 .sidebar-section {
@@ -65,7 +74,7 @@ body {
 }
 
 .sidebar-footer {
-    margin-top: auto;
+    flex-shrink: 0;
     padding: var(--lt-space-3);
     border-top: 1px solid var(--lt-border);
 }
@@ -606,4 +615,66 @@ tbody tr:last-child td {
 
 .secondary-button:hover {
     background: var(--lt-tertiary);
+}
+
+
+/* Sidebar support links */
+.donation-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.donation-link {
+    width: 100%;
+    display: block;
+    padding: 0;
+    color: inherit;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid var(--lt-border);
+    border-radius: var(--lt-radius-md);
+    overflow: hidden;
+    cursor: pointer;
+    transition: background var(--lt-transition-fast), border-color var(--lt-transition-fast);
+}
+
+.donation-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--lt-border-strong);
+}
+
+.donation-link img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+}
+
+.donation-link-bmc img {
+    width: 100%;
+    height: auto;
+}
+
+.settings-sidebar-item {
+    margin-top: 2px;
+}
+
+.upi-modal {
+    width: min(420px, 100%);
+}
+
+.upi-modal-body {
+    padding: 24px;
+    display: grid;
+    place-items: center;
+}
+
+.upi-modal-body img {
+    display: block;
+    width: min(320px, 100%);
+    height: auto;
+    border-radius: var(--lt-radius-md);
 }

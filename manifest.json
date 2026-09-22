@@ -29,5 +29,10 @@
       "run_at": "document_idle"
     }
   ],
-  "icons": {}
+  "icons": {
+    "16": "assets/Less-Type-logo-16.png",
+    "32": "assets/Less-Type-logo-32.png",
+    "48": "assets/Less-Type-logo-48.png",
+    "128": "assets/Less-Type-logo-128.png"
+  }
 }

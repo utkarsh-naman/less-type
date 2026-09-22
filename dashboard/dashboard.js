@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     setupProfileModal();
     setupShortcutModal();
     setupSearch();
+    setupSupportLinks();
 
     await renderProfiles();
     await renderShortcuts();
@@ -44,6 +45,37 @@ function setupStaticIcons() {
 
     document.getElementById("searchIcon").innerHTML =
         LTIcons.search;
+}
+
+
+function setupSupportLinks() {
+    const upiButton = document.getElementById("upiDonationButton");
+    const upiModal = document.getElementById("upiModal");
+    const upiClose = document.getElementById("upiModalClose");
+
+    if (!upiButton || !upiModal || !upiClose) {
+        return;
+    }
+
+    const close = () => upiModal.classList.add("hidden");
+
+    upiButton.addEventListener("click", () => {
+        upiModal.classList.remove("hidden");
+    });
+
+    upiClose.addEventListener("click", close);
+
+    upiModal.addEventListener("click", event => {
+        if (event.target === upiModal) {
+            close();
+        }
+    });
+
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && !upiModal.classList.contains("hidden")) {
+            close();
+        }
+    });
 }
 
 
