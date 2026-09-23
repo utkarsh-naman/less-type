@@ -3,10 +3,10 @@
        LessType Theme
        ======================================== */
 
-    --lt-primary: #010736;
-    --lt-secondary: #0D1C42;
-    --lt-tertiary: #22396F;
-    --lt-cream: #FCF1D0;
+    --lt-primary: #6A99FA;
+    --lt-secondary: #1B1925;
+    --lt-tertiary: #FBA14D;
+    --lt-cream: #FBA14D;
 
     --lt-black: #000000;
     --lt-white: #FFFFFF;
@@ -20,7 +20,7 @@
     --lt-surface-hover: var(--lt-tertiary);
 
     --lt-text: var(--lt-white);
-    --lt-text-muted: #AEB7CC;
+    --lt-text-muted: #F1F5FF;
     --lt-text-dark: var(--lt-black);
 
     --lt-accent: var(--lt-cream);

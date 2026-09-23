@@ -2,14 +2,14 @@
   "manifest_version": 3,
   "name": "LessType",
   "version": "0.1.0",
-  "description": "A local-first text expansion extension for Chromium browsers.",
+  "default_locale": "en",
+  "short_name": "LessType",
+  "description": "__MSG_extensionDescription__",
   "permissions": [
     "storage",
     "contextMenus"
   ],
-  "host_permissions": [
-    "<all_urls>"
-  ],
+  "incognito": "split",
   "background": {
     "service_worker": "background/service-worker.js"
   },

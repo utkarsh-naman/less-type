@@ -35,7 +35,11 @@ body {
     min-height: 0;
     flex: 1;
     overflow-y: auto;
-    scrollbar-width: thin;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.sidebar-content::-webkit-scrollbar {
+    display: none;
 }
 
 .sidebar-section {

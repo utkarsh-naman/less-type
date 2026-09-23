@@ -1,0 +1,8 @@
+{
+  "extensionName": {
+    "message": "LessType"
+  },
+  "extensionDescription": {
+    "message": "Fast, private text expansion with profiles, reusable shortcuts, CSV/JSON import and export, and local-first storage."
+  }
+}
