@@ -87,17 +87,17 @@ chrome.runtime.onStartup.addListener(
 //
 // Example:
 //
-// Selected profile: ut﻿nam
+// Selected profile: utnam
 //
 // age exists in:
-//     Shreya -> 22
-//     test2  -> testage
+//     Profile2 -> 22
+//     Profile3  -> 23
 //
 // Then we create:
 //
 // LessType: "age"
-//     Shreya -> 22
-//     test2  -> testage
+//     Profile2 -> 22
+//     Profile3  -> 23
 //
 // ============================================================
 
@@ -244,14 +244,14 @@ async function showContextMenus(
          *
          * Which produced:
          *
-         *     Shreya
-         *     test2
+         *     Profile2
+         *     Profile3
          *
          *
          * NOW:
          *
-         *     Shreya → 22
-         *     test2 → testage
+         *     Profile2 → 22
+         *     Profile3 → testage
          */
 
         const title =
